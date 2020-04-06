@@ -3,7 +3,7 @@ import java.util.Map;
 
 /**
  * @author tostw
- * No.460 LFU缓存
+ * No.460 LFU缓存(非独立)
  */
 class LFUCache {
 

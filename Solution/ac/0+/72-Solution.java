@@ -1,7 +1,7 @@
 
 /**
  * @author tostw
- * No.72 编辑距离
+ * No.72 编辑距离(非独立)
  */
 public class Solution {
     public int minDistance(String word1, String word2) {
