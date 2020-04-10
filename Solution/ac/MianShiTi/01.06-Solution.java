@@ -1,7 +1,7 @@
 
 /**
  * @author tostw
- * 面试题01.06 字符串压缩
+ * 面试题01.06. 字符串压缩
  */
 public class Solution {
     public String compressString(String S) {

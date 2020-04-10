@@ -1,7 +1,7 @@
 
 /**
  * @author tostw
- * 面试题17.16 按摩师
+ * 面试题17.16. 按摩师
  */
 public class Solution {
     public int massage(int[] nums) {
