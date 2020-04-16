@@ -5,49 +5,42 @@
 public class Solution {
     public int divide(int dividend, int divisor) {
         if (dividend == Integer.MIN_VALUE) {
-            if (divisor == 1) {
+            if (divisor == -1) {
                 return Integer.MAX_VALUE;
+            } else if (divisor == 1) {
+                return Integer.MIN_VALUE;
             }
         }
 
-        boolean minus = false;
-        int result = 0;
-
+        boolean negative = false;
         if (dividend > 0) {
             dividend = -dividend;
-            minus = !minus;
+            negative = true;
         }
         if (divisor > 0) {
             divisor = -divisor;
-            minus = !minus;
+            negative = !negative;
         }
 
+        int ans = 0;
+        int times;
+        int tempDivisor;
         while (dividend <= divisor) {
-            int times = 1;
-            int i = 1;
-            while (dividend <= divisor * times) {
-                if (times * 10 == 1000000000) {
-                    times = 1000000000;
-                    break;
+            times = 1;
+            tempDivisor = divisor;
+            while (dividend <= tempDivisor) {
+                dividend -= tempDivisor;
+                ans += times;
+                if (tempDivisor < Integer.MAX_VALUE - tempDivisor) {
+                    tempDivisor  <<= 1;
+                    times <<= 1;
                 }
-                times *= 10;
             }
-
-            if (times != 1000000000) {
-                times /= 10;
-            }
-
-            while (dividend <= divisor * times) {
-                dividend -= divisor * times;
-                i++;
-            }
-            result += (i - 1) * times;
         }
+        return negative ? -ans : ans;
+    }
 
-        if (minus) {
-            return -result;
-        } else {
-            return result;
-        }
+    public static void main(String[] args) {
+        System.out.println(new Solution().divide(Integer.MAX_VALUE, 2));
     }
 }
