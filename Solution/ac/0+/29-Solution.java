@@ -31,8 +31,8 @@ public class Solution {
             while (dividend <= tempDivisor) {
                 dividend -= tempDivisor;
                 ans += times;
-                if (tempDivisor < Integer.MAX_VALUE - tempDivisor) {
-                    tempDivisor  <<= 1;
+                if (tempDivisor > (Integer.MIN_VALUE >> 1)) {
+                    tempDivisor <<= 1;
                     times <<= 1;
                 }
             }
@@ -41,6 +41,6 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        System.out.println(new Solution().divide(Integer.MAX_VALUE, 2));
+        System.out.println(new Solution().divide(1100540749, -1090366779));
     }
 }
